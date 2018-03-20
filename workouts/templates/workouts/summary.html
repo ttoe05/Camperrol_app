@@ -1,0 +1,34 @@
+{% extends 'workouts/Base.html' %}
+{% load Workouts_tags_filters %}
+
+{% block body %}
+<div class="page header"
+  <h3>Workout Summary</h3>
+</div>
+
+<div class="container">
+
+  <img src="{{user.Profile_Pic.url}}" class="ttoe">
+
+  <h2>{{user.UserName}}</h2>
+  <p class="lead"><small>{{user.Bio_description}}</small></p>
+
+  <ul class="list-unstyled">
+  {% for summaries in summary %}
+  <li>
+    <br>
+      <h5>
+        <b>Workout</b>: {{summaries.Workout.Workout_Name}}
+        <br><b>Date</b>: {{summaries.Date|date:"F j, Y"}}</br>
+      </h5>
+
+        <small>
+          you went {{summaries.Shots_Made}}/ {{summaries.Shots_Attempted}}.
+          <b>Percentage:</b> {{summaries.Shots_Made| percentage:summaries.Shots_Attempted}}
+        </small>
+      </br>
+
+  {% endfor %}
+  </ul>
+</div>
+{% endblock %}

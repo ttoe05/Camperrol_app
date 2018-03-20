@@ -1,0 +1,57 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>All About The Buckets</title>
+  {% load staticfiles %}
+  {% load Workouts_tags_filters %}
+  <link rel="stylesheet" type="text/css" href="{% static 'workouts/CSS/styles.css' %}"/>
+  <link rel="stylesheet" href="{% static 'workouts/CSS/Bootstrap/css/bootstrap.min.css' %}"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="{% url 'workouts:index' %}"><b>AATB</b></a>
+      </div>
+      <div class="collapse navbar-collapse" id="topNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active">
+            <a href="#">
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            </a>
+          </li>
+
+
+        </ul>
+
+        <form class="navbar-form navbar-left" role="search" method="get" action="#">
+            <div class="form-group">
+              <input type="text" class="form-control" name="query" value="">
+            </div>
+            <button type="submit" class="btn btn-default">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+        </form>
+
+      </div>
+
+    </div>
+  </nav>
+
+  {% block body %}
+  {% endblock %}
+
+</body>
+</html>

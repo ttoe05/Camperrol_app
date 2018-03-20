@@ -1,0 +1,12 @@
+{% extends 'workouts/Base.html' %}
+{% load Workouts_tags_filters %}
+
+{% block body %}
+<a href = "{% url 'workouts:index' %}">
+  <button type="button">Home page</button>
+</a>
+<h3>{{workout.Workout_Name}}</h3>
+<p>{{workout.Workout_Description}}</p>
+<p>This workout recevied {{workout.likes}} likes.</p>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'workouts/Base.html' %}
+{% load Workouts_tags_filters %}
+
+
+{% block body %}
+  <h4> ASB X CAPMPERROL </h4>
+  <h3>This is the Workouts page, let's get better!</h3>
+  <ol>
+      {% for workouts in all_workouts %}
+      <li>
+        <a href= "{% url 'workouts:description' workouts.id %}">
+          <button type="button">{{workouts.Workout_Name}}</button>
+        </a>
+      </li>
+      {% endfor %}
+  </ol>
+{% endblock %}
